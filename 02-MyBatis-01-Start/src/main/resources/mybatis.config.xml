@@ -12,7 +12,7 @@
             <!--数据源，type对应数据源的类型-->
             <dataSource type="POOLED">
                 <property name="driver" value="com.mysql.jdbc.Driver"/>
-                <property name="url" value="jdbc:mysql://localhost:3306/r2001?useSSL=false&amp;useUnicode=true&amp;characterEncoding=UTF8"/>
+                <property name="url" value="jdbc:mysql://localhost:3306/rx2001?useSSL=false&amp;useUnicode=true&amp;characterEncoding=UTF8"/>
                 <property name="username" value="root"/>
                 <property name="password" value="1234"/>
             </dataSource>

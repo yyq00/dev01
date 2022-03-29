@@ -21,7 +21,6 @@
 
     <!--指定Mapper.xml的路径位置-->
     <mappers>
-        <mapper resource="com/fc/mapper/UserMapper.xml"/>
         <mapper resource="com/fc/mapper/StudentMapper.xml"/>
     </mappers>
 </configuration>

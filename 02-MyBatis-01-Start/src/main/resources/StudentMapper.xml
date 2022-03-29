@@ -9,12 +9,6 @@
     <select id="selectOne" resultType="com.fc.entity.Student">
         select * from Student where id = 1
     </select>
-
-    <!--用于添加的标签，id必须保持唯一，必须和接口中的方法名保持一致-->
-    <insert id="add">
-        insert into student(name, age, gender, info) values ('欧阳娜娜', 16, '女', '娜娜')
-    </insert>
-
     <!--通过id查询学生对应的SQL语句-->
     <select id="findById" resultType="com.fc.entity.Student" parameterType="Integer">
         select * from student where id = #{id}

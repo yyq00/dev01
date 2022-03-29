@@ -56,7 +56,7 @@ public class MyBatisTest {
             // 获取sqlSession，这个东西就类似queryRunner。包含了所有对数据库的操作
             SqlSession session = sqlSessionFactory.openSession();
 
-            // 执行指定明明空间下的指定sql语句
+            // 执行指定命名空间下的指定sql语句
             Object o = session.selectOne("StudentMapper.select");
 
             System.out.println(o);
