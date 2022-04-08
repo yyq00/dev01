@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.dao.PaperMapper">
+
+    <!--增加一个Paper-->
+    <insert id="addPaper" parameterType="Papers">
+        insert into papers(paperName,paperCounts,detail)
+        values (#{paperName}, #{paperCounts}, #{detail})
+    </insert>
+
+    <!--根据id删除一个Paper-->
+    <delete id="deletePaperById" parameterType="int">
+        delete from papers where paperID=#{paperID}
+    </delete>
+
+    <!--更新Paper-->
+    <update id="updatePaper" parameterType="Papers">
+        update papers
+        set paperName = #{paperName},paperCounts = #{paperCounts},detail = #{detail}
+        where paperID = #{paperID}
+    </update>
+
+    <!--根据id查询,返回一个Paper-->
+    <select id="queryPaperById" resultType="Papers">
+        select * from papers
+        where paperID = #{paperID}
+    </select>
+
+    <!--查询全部Paper-->
+    <select id="queryAllPaper" resultType="Papers">
+        SELECT * from papers
+    </select>
+    <!--根据报刊名查询出所有报刊-->
+    <select id="queryPaperByName" resultType="Papers">
+        select * from papers where paperName= #{paperName}
+    </select>
+</mapper>

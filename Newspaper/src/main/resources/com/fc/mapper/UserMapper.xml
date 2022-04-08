@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.dao.UserMapper">
+    <!--查询所有用户-->
+    <select id="queryAllUser" resultType="Users">
+        SELECT * from users
+    </select>
+    <!--登录验证-->
+    <select id="findByUsername" resultType="Users">
+        select * from users where userName= #{userName} and userPwd=#{userPwd}
+    </select>
+    <!--注册-->
+    <insert id="addUser" parameterType="Users">
+        INSERT INTO users(userName,userPwd,salt)VALUES(#{userName},#{userPwd},#{salt})
+    </insert>
+    <!--增加一个Admin-->
+    <insert id="addUser2" parameterType="Users">
+        insert into users(userName,userPwd)
+        values (#{userName}, #{userPwd})
+    </insert>
+    <!--根据用户名查询出用户-->
+    <select id="queryUserByName2" resultType="Users">
+        select * from users where userName= #{userName}
+    </select>
+    <!--根据id删除一个User-->
+    <delete id="deleteUserById" parameterType="int">
+        delete from users where userID=#{userID}
+    </delete>
+    <!--更新User-->
+    <update id="updateUser" parameterType="Users">
+        update users
+        set userName = #{userName},userPwd = #{userPwd}
+        where userID = #{userID}
+    </update>
+    <!--根据id查询,返回一个Book-->
+    <select id="queryUserById" resultType="Users">
+        select * from users
+        where userID = #{userID}
+    </select>
+
+<!--    <select id="list" resultType="Category">-->
+<!--        select * from users order by id desc-->
+<!--        <if test="start!=null and count!=null">-->
+<!--            limit #{start},#{count}-->
+<!--        </if>-->
+<!--    </select>-->
+<!--    <select id="total" resultType="int">-->
+<!--        select count(*) from users-->
+<!--    </select>-->
+</mapper>
